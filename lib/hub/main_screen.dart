@@ -17,22 +17,13 @@ class MainScreen extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    ColoredBox(
-                      color: Colors.blue,
-                      child: SizedBox(
-                        height: 52,
-                        width: 32,
-                        child: Image.asset("/images/logos/personaje.png"),
-                      ),
+                    SizedBox(
+                      width: MediaQuery.sizeOf(context).width * 0.15,
+                      child: Image.asset("assets/images/logos/personaje.png"),
                     ),
-                    ColoredBox(
-                      color: Colors.red,
-                      child: SizedBox(
-                        height: 52,
-                        width: 57,
-                        child: Image.asset("/images/logos/arrugas.png"),
-                      ),
-                    ),
+                    SizedBox(
+                        width: MediaQuery.sizeOf(context).width * 0.6,
+                        child: Image.asset("assets/images/logos/arrugas.png")),
                   ],
                 ),
               ),
