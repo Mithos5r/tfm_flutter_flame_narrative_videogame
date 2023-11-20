@@ -28,7 +28,7 @@ final class ArrugasSounds {
         return await FlameAudio.bgm.stop();
       }
       FlameAudio.bgm.initialize();
-      await FlameAudio.bgm.play('music/intro.ogg', volume: 0.5);
+      await FlameAudio.bgm.play('music/intro.mp3', volume: 0.5);
     } catch (e) {
       log("Error playing auido player");
     } finally {
