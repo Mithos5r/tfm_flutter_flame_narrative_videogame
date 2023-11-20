@@ -1,14 +1,17 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:arrugas/hub/main_screen.dart';
-import 'package:arrugas/objects/card.dart';
-import 'package:arrugas/objects/foundation.dart';
+import 'package:flutter/foundation.dart';
 
-import 'package:arrugas/objects/stock.dart';
-import 'package:arrugas/objects/tableau_pile.dart';
-import 'package:arrugas/objects/waste.dart';
-import 'package:arrugas/utils/constants.dart';
+import 'common/arrugas_sounds.dart';
+import 'hub/main_screen.dart';
+import 'objects/card.dart';
+import 'objects/foundation.dart';
+
+import 'objects/stock.dart';
+import 'objects/tableau_pile.dart';
+import 'objects/waste.dart';
+import 'utils/constants.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 
@@ -16,11 +19,13 @@ import 'package:flame/game.dart';
 import 'package:flutter/widgets.dart' show runApp;
 
 void main() {
-  runApp(GameWidget(
-    game: Arrugas(),
-    overlayBuilderMap: {'Main': (_, game) => const MainScreen()},
-    initialActiveOverlays: const ['Main'],
-  ));
+  runApp(
+    GameWidget(
+      game: Arrugas(),
+      overlayBuilderMap: {'Main': (_, game) => const MainScreen()},
+      initialActiveOverlays: const ['Main'],
+    ),
+  );
 }
 
 class Arrugas extends FlameGame {
@@ -32,17 +37,21 @@ class Arrugas extends FlameGame {
         Stock(position: Vector2(GameConstant.cardGap, GameConstant.cardGap));
 
     final waste = Waste(
-        position: Vector2(GameConstant.cardWidth + 2 * GameConstant.cardGap,
-            GameConstant.cardGap));
+      position: Vector2(
+        GameConstant.cardWidth + 2 * GameConstant.cardGap,
+        GameConstant.cardGap,
+      ),
+    );
 
     final foundations = List.generate(
       4,
       (i) => Foundation(
         i,
         position: Vector2(
-            (i + 3) * (GameConstant.cardWidth + GameConstant.cardGap) +
-                GameConstant.cardGap,
-            GameConstant.cardGap),
+          (i + 3) * (GameConstant.cardWidth + GameConstant.cardGap) +
+              GameConstant.cardGap,
+          GameConstant.cardGap,
+        ),
       ),
     );
 
@@ -59,13 +68,14 @@ class Arrugas extends FlameGame {
 
     world.add(stock);
     world.add(waste);
-    world.addAll(foundations);
-    world.addAll(piles);
+    await world.addAll(foundations);
+    await world.addAll(piles);
 
     //Camara
     camera.viewfinder.visibleGameSize = Vector2(
-        GameConstant.cardWidth * 7 + GameConstant.cardGap * 8,
-        4 * GameConstant.cardHeight + 3 * GameConstant.cardGap);
+      GameConstant.cardWidth * 7 + GameConstant.cardGap * 8,
+      4 * GameConstant.cardHeight + 3 * GameConstant.cardGap,
+    );
     camera.viewfinder.position =
         Vector2(GameConstant.cardWidth * 3.5 + GameConstant.cardGap * 4, 0);
     camera.viewfinder.anchor = Anchor.topCenter;
@@ -85,9 +95,13 @@ class Arrugas extends FlameGame {
 
     final cards = [
       for (var rank = 1; rank <= 13; rank++)
-        for (var suit = 0; suit < 4; suit++) Card(rank, suit)
+        for (var suit = 0; suit < 4; suit++) Card(rank, suit),
     ];
-    world.addAll(cards);
+    await world.addAll(cards);
     cards.forEach(stock.acquireCard);
+
+    if (!kIsWeb) {
+      arrugasSounds.playMainBackground();
+    }
   }
 }

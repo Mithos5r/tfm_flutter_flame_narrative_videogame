@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:arrugas/objects/waste.dart';
-import 'package:arrugas/utils/constants.dart';
+import 'waste.dart';
+import '../utils/constants.dart';
 import 'package:flame/components.dart';
 
 import 'package:flame/events.dart';

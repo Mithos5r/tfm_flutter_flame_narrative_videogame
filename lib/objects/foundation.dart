@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-import 'package:arrugas/objects/card.dart';
-import 'package:arrugas/objects/pile.dart';
-import 'package:arrugas/painters/suit.dart';
-import 'package:arrugas/utils/constants.dart';
+import 'card.dart';
+import 'pile.dart';
+import '../painters/suit.dart';
+import '../utils/constants.dart';
 import 'package:flame/components.dart';
 
 class Foundation extends PositionComponent implements Pile {

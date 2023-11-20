@@ -1,4 +1,4 @@
-import 'package:arrugas/utils/sprite_reader.dart';
+import '../utils/sprite_reader.dart';
 
 import 'package:flutter/foundation.dart';
 

@@ -1,4 +1,4 @@
-import 'package:arrugas/objects/card.dart';
+import 'card.dart';
 
 abstract class Pile {
   /// Returns true if the [card] can be taken away from this pile and moved

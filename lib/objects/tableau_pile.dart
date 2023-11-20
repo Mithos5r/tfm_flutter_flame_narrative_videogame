@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:arrugas/objects/pile.dart';
-import 'package:arrugas/utils/constants.dart';
+import 'pile.dart';
+import '../utils/constants.dart';
 import 'package:flame/components.dart';
 
 import 'card.dart';

@@ -1,6 +1,6 @@
-import 'package:arrugas/objects/card.dart';
-import 'package:arrugas/objects/pile.dart';
-import 'package:arrugas/utils/constants.dart';
+import 'card.dart';
+import 'pile.dart';
+import '../utils/constants.dart';
 import 'package:flame/components.dart';
 
 class Waste extends PositionComponent implements Pile {

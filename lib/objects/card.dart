@@ -1,11 +1,11 @@
 import 'dart:math';
 import 'dart:ui';
-import 'package:arrugas/objects/pile.dart';
-import 'package:arrugas/objects/tableau_pile.dart';
-import 'package:arrugas/painters/rank.dart';
-import 'package:arrugas/painters/suit.dart';
-import 'package:arrugas/utils/constants.dart';
-import 'package:arrugas/utils/sprite_reader.dart';
+import 'pile.dart';
+import 'tableau_pile.dart';
+import '../painters/rank.dart';
+import '../painters/suit.dart';
+import '../utils/constants.dart';
+import '../utils/sprite_reader.dart';
 
 import 'package:flame/events.dart';
 
