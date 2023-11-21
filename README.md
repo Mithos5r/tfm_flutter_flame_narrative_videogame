@@ -15,3 +15,5 @@ Music by <a href="https://pixabay.com/es/users/daddy_s_music-22836301/?utm_sourc
 
 
 https://create.pixelcut.ai/upscaler para mejorar las imagenes del comic
+https://www.iloveimg.com/es/comprimir-imagen/comprimir-png para comprimir las imagenes generadas por la ia
+
