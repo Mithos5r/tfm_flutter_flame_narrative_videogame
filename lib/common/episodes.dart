@@ -51,6 +51,7 @@ enum Episodes {
       onChapter11: () => l10n.chapter11,
       onChapter12: () => l10n.chapter12,
       onChapter13: () => l10n.chapter13,
+      onChapter14: () => l10n.chapter14,
     );
   }
 
@@ -68,21 +69,23 @@ enum Episodes {
     required T Function() onChapter11,
     required T Function() onChapter12,
     required T Function() onChapter13,
+    required T Function() onChapter14,
   }) {
     final chapter = switch (this) {
       Episodes.unDiaEnElBanco => onChapter1,
       Episodes.elGeriatrico => onChapter2,
       Episodes.unaManyanaCualquiera => onChapter3,
       Episodes.ejercitandoElCuerpo => onChapter4,
-      Episodes.ejercitandoLaMente => onChapter5,
-      Episodes.unDiaMas => onChapter6,
-      Episodes.navidad => onChapter7,
-      Episodes.alheizemer => onChapter8,
-      Episodes.negociacion => onChapter9,
-      Episodes.negacion => onChapter10,
-      Episodes.olvido => onChapter11,
-      Episodes.dorianExpress => onChapter12,
-      Episodes.elPerro => onChapter13,
+      Episodes.deliriosDeLaMente => onChapter5,
+      Episodes.ejercitandoLaMente => onChapter6,
+      Episodes.unDiaMas => onChapter7,
+      Episodes.navidad => onChapter8,
+      Episodes.alheizemer => onChapter9,
+      Episodes.negociacion => onChapter10,
+      Episodes.negacion => onChapter11,
+      Episodes.olvido => onChapter12,
+      Episodes.dorianExpress => onChapter13,
+      Episodes.elPerro => onChapter14,
     };
     return chapter.call();
   }
