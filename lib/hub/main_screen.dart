@@ -73,7 +73,11 @@ class MainScreen extends StatelessWidget with LayoutRules {
                                   isPlaying.data ?? false
                                       ? Icons.volume_up
                                       : Icons.volume_off,
-                                  size: 50,
+                                  size: size.resolve<double>(
+                                    onSmall: () => 36,
+                                    onMedium: () => 40,
+                                    onLarge: () => 50,
+                                  ),
                                 );
                               },
                             ),
@@ -111,7 +115,10 @@ class MainScreen extends StatelessWidget with LayoutRules {
                             ),
                             child: Text(
                               '${l10n.episido_word} ${index + 1}:  $title',
-                              style: const TextStyle(fontSize: 24),
+                              style: const TextStyle(
+                                fontSize: 24,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         ),

@@ -13,8 +13,8 @@ mixin LayoutRules {
 
     return ScreenSizeSupport.obtainSizeByBreakPoint(
       side: mediaQuery.orientation == Orientation.landscape
-          ? mediaQuery.size.width
-          : mediaQuery.size.height,
+          ? mediaQuery.size.height
+          : mediaQuery.size.width,
     );
   }
 }

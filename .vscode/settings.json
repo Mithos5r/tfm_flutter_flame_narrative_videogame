@@ -14,10 +14,10 @@
         "**/.flutter-plugins": true,
         "**/.flutter-plugins-dependencies": true,
         // files que no modificamos
-        "linux": true,
-        "windows": true,
-        "macos": true,
-        "web": true
+        "linux": false,
+        "windows": false,
+        "macos": false,
+        "web": false,
     },
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
