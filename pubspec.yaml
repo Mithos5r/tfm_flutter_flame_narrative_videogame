@@ -35,6 +35,21 @@ flutter:
     - assets/images/logos/
     - assets/images/hubs/
     - assets/audio/music/
+    - assets/images/episodes/episode1
+    - assets/images/episodes/episode2
+    - assets/images/episodes/episode3
+    - assets/images/episodes/episode4
+    - assets/images/episodes/episode5
+    - assets/images/episodes/episode6
+    - assets/images/episodes/episode7
+    - assets/images/episodes/episode8
+    - assets/images/episodes/episode9
+    - assets/images/episodes/episode10
+    - assets/images/episodes/episode11
+    - assets/images/episodes/episode12
+    - assets/images/episodes/episode13
+    - assets/images/episodes/episode14
+
 
 flutter_gen:
   output: lib/gen/ # Optional (default: lib/gen/)
