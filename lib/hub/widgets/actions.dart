@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show Feedback;
+import 'package:flutter/material.dart' show Colors, Feedback;
 import 'package:flutter/widgets.dart';
 
 @immutable
@@ -10,7 +10,29 @@ class ArrugasAction extends StatefulWidget {
     this.canRequestFocus = true,
   });
 
-  //component properties
+  factory ArrugasAction.fromIcon({
+    required VoidCallback onTap,
+    required IconData icon,
+    required EdgeInsetsGeometry padding,
+    Color? backgroundColor,
+  }) =>
+      ArrugasAction(
+        onTap: onTap,
+        child: Padding(
+          padding: padding,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: backgroundColor = Colors.grey.shade200,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Icon(icon),
+            ),
+          ),
+        ),
+      );
+
   final Widget child;
   final bool canRequestFocus;
   final VoidCallback onTap;
