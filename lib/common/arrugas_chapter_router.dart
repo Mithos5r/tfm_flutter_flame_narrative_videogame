@@ -97,9 +97,9 @@ final List<ArrugasChapterRouter> arrugasRouter = () {
       maximumImageAvailables: 8,
       onChapterEnd: continueDialog,
       stepGameTransition: <int, Future<void> Function(BuildContext context)>{
-        3: (BuildContext context) async {
-          await Navigator.of(context).pushNamed('quiz1');
-        },
+        // 3: (BuildContext context) async {
+        //   await Navigator.of(context).pushNamed('quiz1');
+        // },
       },
     ),
     ArrugasChapterRouter(

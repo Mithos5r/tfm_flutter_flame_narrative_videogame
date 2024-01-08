@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../common/arrugas_chapter_router.dart';
-import '../common/arrugas_sounds.dart';
+
 import '../gen/assets.gen.dart';
 import 'widgets/actions.dart';
 import 'widgets/settings_action.dart';

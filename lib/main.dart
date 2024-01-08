@@ -1,27 +1,11 @@
 import 'dart:async';
-import 'dart:math';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'common/arrugas_sounds.dart';
-import 'gen/assets.gen.dart';
-
-import 'hub/episodes/episode1_quiz.dart';
 import 'hub/generic_episode.dart';
 import 'hub/main_screen.dart';
-import 'objects/card.dart';
-import 'objects/foundation.dart';
-
-import 'objects/stock.dart';
-import 'objects/tableau_pile.dart';
-import 'objects/waste.dart';
-import 'utils/constants.dart';
-import 'package:flame/components.dart';
-import 'package:flame/flame.dart';
 
 import 'package:flame/game.dart';
-import 'package:flutter/widgets.dart' show runApp;
 
 void main() {
   runApp(
@@ -30,7 +14,7 @@ void main() {
       routes: {
         'Main': (context) => const MainScreen(),
         'episode': (context) => const GenericEpisode(),
-        'quiz1': (context) => const Episode1Quiz(),
+
         // 'episode2': (context) => const GenericEpisode(),
         // 'episode3': (context) => const GenericEpisode(),
         // 'episode4': (context) => const GenericEpisode(),
