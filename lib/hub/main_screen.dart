@@ -1,3 +1,6 @@
+import 'package:flutter/services.dart';
+
+import '../common/arrugas_chapter_router.dart';
 import '../common/arrugas_sounds.dart';
 import '../common/episodes.dart';
 import '../common/layout_rules.dart';
@@ -6,8 +9,19 @@ import 'widgets/actions.dart';
 import '../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatelessWidget with LayoutRules {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> with LayoutRules {
+  @override
+  void initState() {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,12 +112,16 @@ class MainScreen extends StatelessWidget with LayoutRules {
                     ),
                   ),
                   itemBuilder: (context, index) {
+                    final currentEpisodeIndex = index + 1;
                     final String title = Episodes.localizations(
                       l10n: l10n,
-                      episode: index + 1,
+                      episode: currentEpisodeIndex,
                     );
                     return ArrugasAction(
-                      onTap: () => print(index),
+                      onTap: () => Navigator.of(context).pushReplacementNamed(
+                        'episode',
+                        arguments: arrugasRouter[index],
+                      ),
                       child: ColoredBox(
                         color: Colors.white.withOpacity(0.5),
                         child: SizedBox(
