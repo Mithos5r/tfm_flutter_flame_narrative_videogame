@@ -1,13 +1,18 @@
 import '../../common/arrugas_sounds.dart';
+import '../../common/background_music.dart';
+import '../../common/sfx_music.dart';
 import 'actions.dart';
 import 'package:flutter/material.dart';
 
 class SettingAction extends StatelessWidget {
-  const SettingAction({super.key});
+  const SettingAction({required this.backgroundMusic, super.key});
+
+  final BackgroundMusic backgroundMusic;
 
   @override
   Widget build(BuildContext context) {
     return ArrugasAction.fromIcon(
+      type: SfxButtons.menu,
       onTap: () {
         showDialog(
           context: context,
@@ -32,6 +37,7 @@ class SettingAction extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         ArrugasAction.fromIcon(
+                          type: SfxButtons.click,
                           onTap: () =>
                               Navigator.of(context).pushNamedAndRemoveUntil(
                             'Main',
@@ -44,7 +50,16 @@ class SettingAction extends StatelessWidget {
                           icon: Icons.home,
                         ),
                         ArrugasAction(
-                          onTap: arrugasSounds.playMainBackground,
+                          type: SfxButtons.click,
+                          onTap: () {
+                            if (!arrugasSounds.isBackGroundPlaying) {
+                              return arrugasSounds.playInBackground(
+                                backgroundMusic: backgroundMusic,
+                                replay: true,
+                              );
+                            }
+                            arrugasSounds.stopResetBackground();
+                          },
                           child: Padding(
                             padding: const EdgeInsets.all(32),
                             child: DecoratedBox(
@@ -69,6 +84,7 @@ class SettingAction extends StatelessWidget {
                           ),
                         ),
                         ArrugasAction.fromIcon(
+                          type: SfxButtons.click,
                           onTap: () => Navigator.of(context).pop(),
                           padding: const EdgeInsets.symmetric(
                             horizontal: 8,

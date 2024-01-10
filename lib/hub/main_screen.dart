@@ -1,9 +1,10 @@
 import 'package:flutter/services.dart';
 
-import '../common/arrugas_chapter_router.dart';
 import '../common/arrugas_sounds.dart';
 import '../common/episodes.dart';
 import '../common/layout_rules.dart';
+import '../common/sfx_music.dart';
+import '../episodes/episodes.dart';
 import '../gen/assets.gen.dart';
 import 'widgets/actions.dart';
 import '../l10n/l10n.dart';
@@ -20,6 +21,9 @@ class _MainScreenState extends State<MainScreen> with LayoutRules {
   @override
   void initState() {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    if (arrugasSounds.isBackGroundPlaying) {
+      arrugasSounds.playInBackground(replay: true);
+    }
     super.initState();
   }
 
@@ -77,7 +81,8 @@ class _MainScreenState extends State<MainScreen> with LayoutRules {
                         ),
                         const Spacer(),
                         ArrugasAction(
-                          onTap: arrugasSounds.playMainBackground,
+                          type: SfxButtons.click,
+                          onTap: arrugasSounds.playInBackground,
                           child: Padding(
                             padding: const EdgeInsets.all(32),
                             child: StreamBuilder(
@@ -118,10 +123,13 @@ class _MainScreenState extends State<MainScreen> with LayoutRules {
                       episode: currentEpisodeIndex,
                     );
                     return ArrugasAction(
-                      onTap: () => Navigator.of(context).pushReplacementNamed(
-                        'episode',
-                        arguments: arrugasRouter[index],
-                      ),
+                      type: SfxButtons.open,
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed(
+                          'episode',
+                          arguments: episodesList[index],
+                        );
+                      },
                       child: ColoredBox(
                         color: Colors.white.withOpacity(0.5),
                         child: SizedBox(

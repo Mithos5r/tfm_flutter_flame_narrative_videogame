@@ -1,20 +1,19 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 import 'hub/generic_episode.dart';
 import 'hub/main_screen.dart';
-
-import 'package:flame/game.dart';
 
 void main() {
   runApp(
     MaterialApp(
       initialRoute: 'Main',
       routes: {
-        'Main': (context) => const MainScreen(),
-        'episode': (context) => const GenericEpisode(),
-
+        'Main': (context) => const Material(
+              child: MainScreen(),
+            ),
+        'episode': (context) => const Material(
+              child: GenericEpisode(),
+            ),
         // 'episode2': (context) => const GenericEpisode(),
         // 'episode3': (context) => const GenericEpisode(),
         // 'episode4': (context) => const GenericEpisode(),
@@ -31,33 +30,3 @@ void main() {
     ),
   );
 }
-
-class Arrugas extends FlameGame {
-  late final RouterComponent router;
-  @override
-  Future<void> onLoad() async {
-    // add(
-    //   router = RouterComponent(
-    //     routes: {
-    //       'Main': MainScreen(game: game),
-    //       'episode1': MainScreen(game: game),
-    //       'episode2': MainScreen(game: game),
-    //       'episode3': MainScreen(game: game),
-    //       'episode4': MainScreen(game: game),
-    //       'episode5': MainScreen(game: game),
-    //       'episode6': MainScreen(game: game),
-    //       'episode7': MainScreen(game: game),
-    //       'episode8': MainScreen(game: game),
-    //       'episode9': MainScreen(game: game),
-    //       'episode10': MainScreen(game: game),
-    //       'episode11': MainScreen(game: game),
-    //       'episode12': MainScreen(game: game),
-    //       'episode13': MainScreen(game: game),
-    //     },
-    //     initialRoute: 'home',
-    //   ),
-    // );
-  }
-}
-
-final class EpisodesTraces {}
