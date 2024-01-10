@@ -34,14 +34,53 @@ class $AssetsImagesGen {
 class $AssetsAudioMusicGen {
   const $AssetsAudioMusicGen();
 
-  /// File path: assets/audio/music/piano-moment.ogg
-  String get pianoMoment => 'assets/audio/music/piano-moment.ogg';
+  /// File path: assets/audio/music/button-click.mp3
+  String get buttonClick => 'assets/audio/music/button-click.mp3';
 
-  /// File path: assets/audio/music/relaxing.ogg
-  String get relaxing => 'assets/audio/music/relaxing.ogg';
+  /// File path: assets/audio/music/christmas-stars.mp3
+  String get christmasStars => 'assets/audio/music/christmas-stars.mp3';
+
+  /// File path: assets/audio/music/episode-open.mp3
+  String get episodeOpen => 'assets/audio/music/episode-open.mp3';
+
+  /// File path: assets/audio/music/lazy-afternoon.mp3
+  String get lazyAfternoon => 'assets/audio/music/lazy-afternoon.mp3';
+
+  /// File path: assets/audio/music/menu-open.mp3
+  String get menuOpen => 'assets/audio/music/menu-open.mp3';
+
+  /// File path: assets/audio/music/next-page-1.mp3
+  String get nextPage1 => 'assets/audio/music/next-page-1.mp3';
+
+  /// File path: assets/audio/music/next-page-2.mp3
+  String get nextPage2 => 'assets/audio/music/next-page-2.mp3';
+
+  /// File path: assets/audio/music/next-page-3.mp3
+  String get nextPage3 => 'assets/audio/music/next-page-3.mp3';
+
+  /// File path: assets/audio/music/piano-moment.mp3
+  String get pianoMoment => 'assets/audio/music/piano-moment.mp3';
+
+  /// File path: assets/audio/music/relaxed-walk-113607.mp3
+  String get relaxedWalk113607 => 'assets/audio/music/relaxed-walk-113607.mp3';
+
+  /// File path: assets/audio/music/relaxing.mp3
+  String get relaxing => 'assets/audio/music/relaxing.mp3';
 
   /// List of all assets
-  List<String> get values => [pianoMoment, relaxing];
+  List<String> get values => [
+        buttonClick,
+        christmasStars,
+        episodeOpen,
+        lazyAfternoon,
+        menuOpen,
+        nextPage1,
+        nextPage2,
+        nextPage3,
+        pianoMoment,
+        relaxedWalk113607,
+        relaxing
+      ];
 }
 
 class $AssetsImagesEpisodesGen {
