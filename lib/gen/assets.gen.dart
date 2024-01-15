@@ -19,6 +19,7 @@ class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   $AssetsImagesEpisodesGen get episodes => const $AssetsImagesEpisodesGen();
+  $AssetsImagesGamesGen get games => const $AssetsImagesGamesGen();
   $AssetsImagesHubsGen get hubs => const $AssetsImagesHubsGen();
 
   /// File path: assets/images/klondike-sprites.png
@@ -46,8 +47,8 @@ class $AssetsAudioMusicGen {
   /// File path: assets/audio/music/lazy-afternoon.mp3
   String get lazyAfternoon => 'assets/audio/music/lazy-afternoon.mp3';
 
-  /// File path: assets/audio/music/menu-open.mp3
-  String get menuOpen => 'assets/audio/music/menu-open.mp3';
+  /// File path: assets/audio/music/menuOpen.mp3
+  String get menuOpen => 'assets/audio/music/menuOpen.mp3';
 
   /// File path: assets/audio/music/next-page-1.mp3
   String get nextPage1 => 'assets/audio/music/next-page-1.mp3';
@@ -67,6 +68,9 @@ class $AssetsAudioMusicGen {
   /// File path: assets/audio/music/relaxing.mp3
   String get relaxing => 'assets/audio/music/relaxing.mp3';
 
+  /// File path: assets/audio/music/setting_click.mp3
+  String get settingClick => 'assets/audio/music/setting_click.mp3';
+
   /// List of all assets
   List<String> get values => [
         buttonClick,
@@ -79,7 +83,8 @@ class $AssetsAudioMusicGen {
         nextPage3,
         pianoMoment,
         relaxedWalk113607,
-        relaxing
+        relaxing,
+        settingClick
       ];
 }
 
@@ -114,6 +119,13 @@ class $AssetsImagesEpisodesGen {
       const $AssetsImagesEpisodesEpisode8Gen();
   $AssetsImagesEpisodesEpisode9Gen get episode9 =>
       const $AssetsImagesEpisodesEpisode9Gen();
+}
+
+class $AssetsImagesGamesGen {
+  const $AssetsImagesGamesGen();
+
+  $AssetsImagesGamesEpisode2Gen get episode2 =>
+      const $AssetsImagesGamesEpisode2Gen();
 }
 
 class $AssetsImagesHubsGen {
@@ -1660,6 +1672,17 @@ class $AssetsImagesEpisodesEpisode9Gen {
         episode9View8,
         episode9View9
       ];
+}
+
+class $AssetsImagesGamesEpisode2Gen {
+  const $AssetsImagesGamesEpisode2Gen();
+
+  /// File path: assets/images/games/episode2/hall.png
+  AssetGenImage get hall =>
+      const AssetGenImage('assets/images/games/episode2/hall.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [hall];
 }
 
 class Assets {

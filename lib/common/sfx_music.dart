@@ -2,9 +2,9 @@ import '../gen/assets.gen.dart';
 import 'extensions/audio_path.dart';
 
 enum SfxButtons {
-  click(volume: 0.03),
+  click(volume: 0.1),
   menu(volume: 0.03),
-  open(volume: 0.3),
+  open(volume: 0.5),
   noMusic(volume: 0);
 
   const SfxButtons({
@@ -14,9 +14,9 @@ enum SfxButtons {
 
   String toAudioPath() {
     final path = switch (this) {
-      SfxButtons.click => Assets.audio.music.menuOpen,
+      SfxButtons.click => Assets.audio.music.settingClick,
       SfxButtons.menu => Assets.audio.music.buttonClick,
-      SfxButtons.open => Assets.audio.music.menuOpen,
+      SfxButtons.open => Assets.audio.music.settingClick,
       SfxButtons.noMusic => '',
     };
     return path.audioPath;
