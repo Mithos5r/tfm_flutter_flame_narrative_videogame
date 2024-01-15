@@ -8,6 +8,7 @@ import '../common/arrugas_sounds.dart';
 import '../common/sfx_music.dart';
 import '../gen/assets.gen.dart';
 import 'widgets/actions.dart';
+import 'widgets/image_platform_management.dart';
 import 'widgets/settings_action.dart';
 
 class GenericEpisode extends StatefulWidget {
@@ -19,7 +20,9 @@ class GenericEpisode extends StatefulWidget {
 
 class _GenericEpisodeState extends State<GenericEpisode> {
   int counter = 1;
-  String imageCurrentPath = Assets.images.episodes.episode1.episode1View1.path;
+
+  ArrugasImage arrugasImage =
+      ArrugasImage(Assets.images.episodes.episode1.episode1View1.path);
   int maximumNumberOfSlices = 0;
   ArrugasChapterRouter? viewArguments;
 
@@ -37,7 +40,7 @@ class _GenericEpisodeState extends State<GenericEpisode> {
     viewArguments =
         ModalRoute.of(context)?.settings.arguments as ArrugasChapterRouter?;
 
-    imageCurrentPath = viewArguments?.imagePath ?? imageCurrentPath;
+    arrugasImage = arrugasImage.copyWith(assetName: viewArguments?.imagePath);
     maximumNumberOfSlices =
         viewArguments?.maximumImageAvailables ?? maximumNumberOfSlices;
 
@@ -63,7 +66,9 @@ class _GenericEpisodeState extends State<GenericEpisode> {
           children: [
             Align(
               alignment: kIsWeb ? Alignment.center : Alignment.topCenter,
-              child: Image.asset(imageCurrentPath, fit: BoxFit.fitHeight),
+              child: arrugasImage.image(
+                fit: BoxFit.fitHeight,
+              ),
             ),
             Align(
               alignment: Alignment.bottomLeft,
@@ -92,6 +97,17 @@ class _GenericEpisodeState extends State<GenericEpisode> {
                       ),
                     ),
                   ),
+                  if (kDebugMode)
+                    ArrugasAction.fromIcon(
+                      onTap: () {
+                        counter--;
+                        arrugasImage = arrugasImage.nextImage(counter: counter);
+                        setState(() {});
+                      },
+                      icon: Icons.arrow_back_ios_new_rounded,
+                      padding: const EdgeInsets.all(5),
+                      type: SfxButtons.noMusic,
+                    ),
                   ArrugasAction.fromIcon(
                     type: SfxButtons.noMusic,
                     onTap: () async {
@@ -105,11 +121,7 @@ class _GenericEpisodeState extends State<GenericEpisode> {
                         return;
                       }
 
-                      final regex = RegExp(r'view\d*\.png');
-                      final fileWithoutFormat =
-                          imageCurrentPath.replaceAll(regex, '');
-
-                      imageCurrentPath = "${fileWithoutFormat}view$counter.png";
+                      arrugasImage = arrugasImage.nextImage(counter: counter);
                       setState(() {});
                     },
                     padding: const EdgeInsets.symmetric(
